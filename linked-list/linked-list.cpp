@@ -66,3 +66,19 @@ sLinkedList* init_linked_list(){
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+void add_element(sLinkedList* list, int newNbr){
+
+  // create a new element
+  sElement* newElement = (sElement*)malloc(sizeof(*newElement));
+
+  if(list == NULL || newElement == NULL){
+    exit(EXIT_FAILURE);
+  }
+
+  // insert the new element at the beggining of the list
+  newElement->value = newNbr;
+  newElement->pNext = list->pFirstElement;
+  list->pFirstElement = newElement;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
